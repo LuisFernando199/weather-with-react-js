@@ -17,18 +17,42 @@ p {
 .city{
     font-size: 2.5rem;
     
+    width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
 }
 .App {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
-    background-color: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.55);
     color: white;
 }
 
-.App:before {
+
+.clouds {
+    
+    background: rgba(0,0,0,0.55);
+  }
+  
+.clouds:before {
     content: '';
-    /*background: url('./assets/soleado.jpg') no-repeat center center/cover;*/
+    background:  url('./assets/nublado.jpg') no-repeat center center/cover;
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+  
+  .rain {
+    background: rgba(0,0,0,0.55);
+  }
+  .rain:before {
+    content: '';
+    background: url('./assets/lluvioso.jpg') no-repeat center center/cover;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -36,17 +60,22 @@ p {
     left: 0;
     z-index: -1;
 }
-.clouds {
-    background: url('./assets/nublado.jpg') no-repeat center center/cover;
-  }
-  
-  .rain {
-    background: url('./assets/lluvioso.jpg') no-repeat center center/cover;
-  }
   
   .clear {
-    background: url('./assets/soleado.jpg') no-repeat center center/cover;
+    background: rgba(0,0,0,0.55);
   }
+
+  .clear:before {
+    content: '';
+    background: url('./assets/soleado.jpg') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+  
   
   .default {
     background: url('./assets/soleado.jpg') no-repeat center center/cover;
@@ -81,11 +110,13 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 
 .App .position-up {
   width: 100%;
   margin: 1rem auto;
+  
 }
 
 .App .state {
@@ -104,23 +135,29 @@ p {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    margin: 10rem auto;
+    margin:  auto;
     padding: 1rem;
 }
-
+@media (max-width: 768px) {
+    /* Estilos para pantallas con un ancho máximo de 768px */
+    .App .position-down {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 .measure {
     font-size: 2.5rem;
     text-align: center;
 }
-
+.sensation {
+    
+    color: rgba(255, 0, 0, 0.452);
+}
 .humidity {
-    color: rgba(0, 0, 255, 0.473);
+    color: rgba(0, 204, 255, 0.568);
 }
 
 .speed {
     color: rgba(255, 255, 0, 0.63);
 }
 
-.sensation {
-    color: rgba(255, 0, 0, 0.452);
-}
